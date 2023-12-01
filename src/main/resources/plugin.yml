@@ -1,0 +1,11 @@
+name: ExpungeCampaignEdit
+version: '${version}'
+main: me.chimkenu.expungecampaignedit.ExpungeCampaignEdit
+api-version: '1.20'
+depend: [Expunge]
+commands:
+  edit:
+    description: Map editing command
+permissions:
+  expunge-campaign-edit:
+    default: op
