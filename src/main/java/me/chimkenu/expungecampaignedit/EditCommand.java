@@ -68,8 +68,12 @@ public class EditCommand implements CommandExecutor, TabCompleter {
         } else if (args[0].equalsIgnoreCase("save")) {
             for (EditWorld editWorld : plugin.worlds) {
                 if (editWorld.getWorld().equals(player.getWorld())) {
-                    sender.sendMessage(Component.text("Saving edit world...", NamedTextColor.GREEN));
-                    editWorld.saveToSource();
+                    sender.sendMessage(Component.text("Saving edit world...", NamedTextColor.YELLOW));
+                    if (editWorld.saveToSource()) {
+                        sender.sendMessage(Component.text("Saved!", NamedTextColor.GREEN));
+                    } else {
+                        sender.sendMessage(Component.text("Something went wrong, check the logs for more info.", NamedTextColor.RED));
+                    }
                     return true;
                 }
             }

@@ -21,8 +21,7 @@ public class FileUtils {
                 }
 
                 try {
-                    System.out.println(source + " to " + destination);
-                    Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
+                    if (source.toFile().isFile()) Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
