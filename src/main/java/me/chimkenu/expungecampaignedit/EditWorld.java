@@ -41,7 +41,7 @@ public class EditWorld {
             world.getPlayers().forEach(player -> player.teleport(new Location(Bukkit.getWorld("world"), 0, 0, 0)));
             Bukkit.unloadWorld(world, save);
         }
-        if (activeWorldFolder != null) {
+        if (!save && activeWorldFolder != null) {
             try {
                 FileUtils.deleteDirectory(activeWorldFolder.toPath());
             } catch (IOException e) {

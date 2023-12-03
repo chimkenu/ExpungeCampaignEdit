@@ -14,10 +14,7 @@ public final class ExpungeCampaignEdit extends JavaPlugin {
     @Override
     public void onEnable() {
         EXPUNGE_MAPS = Objects.requireNonNull(getServer().getPluginManager().getPlugin("Expunge")).getDataFolder();
-        System.out.println(EXPUNGE_MAPS);
-
         worlds = new HashSet<>();
-
         Objects.requireNonNull(getCommand("edit")).setExecutor(new EditCommand(this));
     }
 

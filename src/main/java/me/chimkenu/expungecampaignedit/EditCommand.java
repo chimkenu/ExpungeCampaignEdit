@@ -116,7 +116,7 @@ public class EditCommand implements CommandExecutor, TabCompleter {
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length <= 1) {
             return List.of("save", "load", "close");
-        } else {
+        } else if (args[0].equalsIgnoreCase("load")) {
             String[] children = plugin.EXPUNGE_MAPS.list();
             if (children == null) return null;
 
@@ -134,5 +134,6 @@ public class EditCommand implements CommandExecutor, TabCompleter {
             }
             return dirs;
         }
+        return null;
     }
 }

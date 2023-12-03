@@ -2,10 +2,7 @@ package me.chimkenu.expungecampaignedit;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.nio.file.*;
 import java.util.Comparator;
 import java.util.stream.Stream;
 
@@ -21,7 +18,8 @@ public class FileUtils {
                 }
 
                 try {
-                    if (source.toFile().isFile()) Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
+                    Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
+                } catch (DirectoryNotEmptyException ignored) {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
